@@ -426,20 +426,25 @@ Xingyuan Zhao
 <ul>
 <li>Linear Layers to create Query, Key and Value Matrices, and dividing into heads <span class="math inline">\(h\)</span> and size of heads <span class="math inline">\(s\)</span>, where <span class="math inline">\(h*s=k\)</span>:</li>
 </ul>
-<p><span class="math display">\[ \mathbf{Q}_{i h s} = (\mathbf{X}_{i k} \mathbf{W}_Q)_{i h s}, \mathbf{K}_{i h s} = (\mathbf{X}_{i k} \mathbf{W}_K)_{i h s}, \mathbf{V}_{i h s} = (\mathbf{X}_{i k} \mathbf{W}_V)_{i h s} \]</span></p>
+<p><span class="math display">\[
+\mathbf{Q} = \mathbf{X}\mathbf{W}^Q, \quad \mathbf{K} = \mathbf{X}\mathbf{W}^K, \quad \mathbf{V} = \mathbf{X}\mathbf{W}^V
+\]</span></p>
+<p><span class="math display">\[
+\text{where } \mathbf{X} \in \mathbb{R}^{i \times k}, \quad \mathbf{W}^{Q,K,V} \in \mathbb{R}^{k \times (h \cdot s)}, \quad \mathbf{Q, K, V} \in \mathbb{R}^{i \times h \times s}.
+\]</span></p>
 <ul>
 <li>Creating contextualized characteristics:</li>
 </ul>
-<p><span class="math display">\[ \mathbf{C}_{i k} = \mathrm{concat}\!\Bigl(\mathrm{softmax}\!\bigl(\frac{\mathbf{Q}\mathbf{K'}}{\sqrt{s}}\bigr)\,\mathbf{V}\Bigr) \]</span></p>
+<p><span class="math display">\[ \mathbf{C} = \mathrm{concat}\!\Bigl(\mathrm{softmax}\!\bigl(\frac{\mathbf{Q}\mathbf{K'}}{\sqrt{s}}\bigr)\,\mathbf{V}\Bigr) \text{, where }\mathbf{C} \in \mathbb{R}^{ik}\]</span></p>
 </section>
 <section id="multi-head-attention-in-scm-1" class="slide level2">
 <h2>Multi-head Attention in SCM</h2>
 <ul>
 <li>Optimization of the discrepancy of contextualized characteristics, where <span class="math inline">\(\mathbf{W}\)</span> is the weights on units:</li>
 </ul>
-<p><span class="math display">\[ Loss = \sqrt{\left(\mathbf{C}_{i=1} - \mathbf{C}_{i&gt;1}\mathbf{W}\right)' \mathbf{V} \left(\mathbf{C}_{i=1} - \mathbf{C}_{i&gt;1}\mathbf{W}\right)} \]</span></p>
+<p><span class="math display">\[ Loss = \sqrt{\left(\mathbf{C}_{i=1} - \mathbf{C}_{i&gt;1}\mathbf{W}\right)' \mathbf{U} \left(\mathbf{C}_{i=1} - \mathbf{C}_{i&gt;1}\mathbf{W}\right)} , \text{where }\mathbf{U} \in \mathbb{R}^{k \times k}\]</span></p>
 <ul>
-<li>Choosing a <span class="math inline">\(V\)</span> matrix that represent the relation among the characteristics:</li>
+<li>Choosing a <span class="math inline">\(\mathbf{U}\)</span> matrix that represent the relation among the characteristics:</li>
 </ul>
 <p><span class="math display">\[ MSE = \mathrm{mean}\Bigl(\mathbf{Y}_{i=1} - \mathbf{W}\,\mathrm{MultiheadAttention}(\mathbf{Y}_{i&gt;1})\Bigr)^2 \]</span></p>
 </section>
