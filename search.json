@@ -1,0 +1,177 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Contexual Synthetic Control Method",
+    "section": "",
+    "text": "A Synthetic Control Method that incorporates Multi-head Attention Mechanism"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "presentation.html#bureau-of-industry-and-security-gpu-ban",
+    "href": "presentation.html#bureau-of-industry-and-security-gpu-ban",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "",
+    "text": "October 2022: First set of controls to prevent certain foreign military and intelligence services from obtaining advanced GPUs\nOctober 2023: BIS expanded export controls specifically aiming at limiting the PRC’s AI capabilities\n\n\n\nThe GPU ban temporarily reduced the development of the PRC’s AI models performance."
+  },
+  {
+    "objectID": "presentation.html#uniqueness-of-the-ai-performance-data",
+    "href": "presentation.html#uniqueness-of-the-ai-performance-data",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Uniqueness of the AI Performance Data",
+    "text": "Uniqueness of the AI Performance Data\n\nThe scale between the treated unit and the controlled units can very different;\nOne unit in the control group is heavily relied on;\nPre-treatment period and number or units are limited."
+  },
+  {
+    "objectID": "presentation.html#feasibility-of-synthetic-control-method",
+    "href": "presentation.html#feasibility-of-synthetic-control-method",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Feasibility of Synthetic Control Method",
+    "text": "Feasibility of Synthetic Control Method\n\nDonor units must be sufficiently similar to the treated unit\nThe treated unit can be approximated by the control units\nUnit weights must be nonnegative and add up to one to avoid extrapolation\nLarger donor pool than pre-treatment period can lead to overfitting\nPre-treatment outcomes unaffected by future intervention\nNo spillover effects\n… …"
+  },
+  {
+    "objectID": "presentation.html#requirements-for-a-solution",
+    "href": "presentation.html#requirements-for-a-solution",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Requirements for a Solution",
+    "text": "Requirements for a Solution\n\nThe treated unit and controlled units should be comparable\nSuch transformation needs to robust\nNot just spamming units and characteristics, for larger number of characteristics than pre-treatment time steps may cause over fitting"
+  },
+  {
+    "objectID": "presentation.html#multi-head-attention-mechanism",
+    "href": "presentation.html#multi-head-attention-mechanism",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Multi-head Attention Mechanism",
+    "text": "Multi-head Attention Mechanism"
+  },
+  {
+    "objectID": "presentation.html#multi-head-attention-mechanism-1",
+    "href": "presentation.html#multi-head-attention-mechanism-1",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Multi-head Attention Mechanism",
+    "text": "Multi-head Attention Mechanism"
+  },
+  {
+    "objectID": "presentation.html#multi-head-attention-mechanism-2",
+    "href": "presentation.html#multi-head-attention-mechanism-2",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Multi-head Attention Mechanism",
+    "text": "Multi-head Attention Mechanism\n\nThe interaction between Q, K and V matrices captures:\n\nthe integrated information of the whole sequence;\nimportance of the information from other units.\n\nThe head-splits allows:\n\ndifferent interactions to be captured;\ndiversified information capturing reduces risk of missing important information;\nrobustness against noise."
+  },
+  {
+    "objectID": "presentation.html#multi-head-attention-mechanism-in-scm",
+    "href": "presentation.html#multi-head-attention-mechanism-in-scm",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Multi-head Attention Mechanism in SCM",
+    "text": "Multi-head Attention Mechanism in SCM\n\nLinear Layers to create Query, Key and Value Matrices, and dividing into heads \\(h\\) and size of heads \\(s\\), where \\(h*s=k\\):\n\n\\[ \\mathbf{Q}_{i h s} = (\\mathbf{X}_{i k} \\mathbf{W}_Q)_{i h s}, \\mathbf{K}_{i h s} = (\\mathbf{X}_{i k} \\mathbf{W}_K)_{i h s}, \\mathbf{V}_{i h s} = (\\mathbf{X}_{i k} \\mathbf{W}_V)_{i h s} \\]\n\nCreating contextualized characteristics:\n\n\\[ \\mathbf{C}_{i k} = \\mathrm{concat}\\!\\Bigl(\\mathrm{softmax}\\!\\bigl(\\frac{\\mathbf{Q}\\mathbf{K'}}{\\sqrt{s}}\\bigr)\\,\\mathbf{V}\\Bigr) \\]"
+  },
+  {
+    "objectID": "presentation.html#multi-head-attention-mechanism-in-scm-1",
+    "href": "presentation.html#multi-head-attention-mechanism-in-scm-1",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Multi-head Attention Mechanism in SCM",
+    "text": "Multi-head Attention Mechanism in SCM\n\nOptimization of the discrepancy of contextualized characteristics, where \\(\\mathbf{W}\\) is the weights on units:\n\n\\[ Loss = \\sqrt{\\left(\\mathbf{C}_{i=1} - \\mathbf{C}_{i&gt;1}\\mathbf{W}\\right)' \\mathbf{V} \\left(\\mathbf{C}_{i=1} - \\mathbf{C}_{i&gt;1}\\mathbf{W}\\right)} \\]\n\nChoosing a \\(V\\) matrix that represent the relation among the characteristics:\n\n\\[ \\mathbf{MSE} = \\mathrm{mean}\\Bigl(\\mathbf{Y}_{i=1} - \\mathbf{W}\\,\\mathrm{MultiheadAttention}(\\mathbf{Y}_{i&gt;1})\\Bigr)^2 \\]"
+  },
+  {
+    "objectID": "presentation.html#multi-head-attention-in-scm",
+    "href": "presentation.html#multi-head-attention-in-scm",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Multi-head Attention in SCM",
+    "text": "Multi-head Attention in SCM\n\nLinear Layers to create Query, Key and Value Matrices, and dividing into heads \\(h\\) and size of heads \\(s\\), where \\(h*s=k\\):\n\n\\[ \\mathbf{Q}_{i h s} = (\\mathbf{X}_{i k} \\mathbf{W}_Q)_{i h s}, \\mathbf{K}_{i h s} = (\\mathbf{X}_{i k} \\mathbf{W}_K)_{i h s}, \\mathbf{V}_{i h s} = (\\mathbf{X}_{i k} \\mathbf{W}_V)_{i h s} \\]\n\nCreating contextualized characteristics:\n\n\\[ \\mathbf{C}_{i k} = \\mathrm{concat}\\!\\Bigl(\\mathrm{softmax}\\!\\bigl(\\frac{\\mathbf{Q}\\mathbf{K'}}{\\sqrt{s}}\\bigr)\\,\\mathbf{V}\\Bigr) \\]"
+  },
+  {
+    "objectID": "presentation.html#multi-head-attention-in-scm-1",
+    "href": "presentation.html#multi-head-attention-in-scm-1",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Multi-head Attention in SCM",
+    "text": "Multi-head Attention in SCM\n\nOptimization of the discrepancy of contextualized characteristics, where \\(\\mathbf{W}\\) is the weights on units:\n\n\\[ Loss = \\sqrt{\\left(\\mathbf{C}_{i=1} - \\mathbf{C}_{i&gt;1}\\mathbf{W}\\right)' \\mathbf{V} \\left(\\mathbf{C}_{i=1} - \\mathbf{C}_{i&gt;1}\\mathbf{W}\\right)} \\]\n\nChoosing a \\(V\\) matrix that represent the relation among the characteristics:\n\n\\[ MSE = \\mathrm{mean}\\Bigl(\\mathbf{Y}_{i=1} - \\mathbf{W}\\,\\mathrm{MultiheadAttention}(\\mathbf{Y}_{i&gt;1})\\Bigr)^2 \\]"
+  },
+  {
+    "objectID": "presentation.html#results-synthetic-control-unit",
+    "href": "presentation.html#results-synthetic-control-unit",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Results: Synthetic Control Unit",
+    "text": "Results: Synthetic Control Unit"
+  },
+  {
+    "objectID": "presentation.html#results-treatment-effect",
+    "href": "presentation.html#results-treatment-effect",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Results: Treatment Effect",
+    "text": "Results: Treatment Effect"
+  },
+  {
+    "objectID": "presentation.html#results-donor-units-weights",
+    "href": "presentation.html#results-donor-units-weights",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Results: Donor Units Weights",
+    "text": "Results: Donor Units Weights"
+  },
+  {
+    "objectID": "presentation.html#results-donor-units-weights-1",
+    "href": "presentation.html#results-donor-units-weights-1",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Results: Donor Units Weights",
+    "text": "Results: Donor Units Weights"
+  },
+  {
+    "objectID": "presentation.html#placebo-tests-placebo-units",
+    "href": "presentation.html#placebo-tests-placebo-units",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Placebo Tests: Placebo Units",
+    "text": "Placebo Tests: Placebo Units"
+  },
+  {
+    "objectID": "presentation.html",
+    "href": "presentation.html",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "",
+    "text": "October 2022: First set of controls to prevent certain foreign military and intelligence services from obtaining advanced GPUs\nOctober 2023: BIS expanded export controls specifically aiming at limiting the PRC’s AI capabilities\n\n\n\nThe GPU ban temporarily reduced the development of the PRC’s AI models performance."
+  },
+  {
+    "objectID": "presentation.html#results-donor-units-weights-with-usa",
+    "href": "presentation.html#results-donor-units-weights-with-usa",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Results: Donor Units Weights with USA",
+    "text": "Results: Donor Units Weights with USA"
+  },
+  {
+    "objectID": "presentation.html#results-donor-units-weights-without-usa",
+    "href": "presentation.html#results-donor-units-weights-without-usa",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Results: Donor Units Weights without USA",
+    "text": "Results: Donor Units Weights without USA"
+  },
+  {
+    "objectID": "presentation.html#placebo-tests-postpre-mse-ratio",
+    "href": "presentation.html#placebo-tests-postpre-mse-ratio",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Placebo Tests: Post/Pre MSE Ratio",
+    "text": "Placebo Tests: Post/Pre MSE Ratio"
+  },
+  {
+    "objectID": "presentation.html#placebo-tests-ratio-of-other-cutoffs",
+    "href": "presentation.html#placebo-tests-ratio-of-other-cutoffs",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Placebo Tests: Ratio of other cutoffs",
+    "text": "Placebo Tests: Ratio of other cutoffs"
+  },
+  {
+    "objectID": "presentation.html#placebo-tests-leave-one-out",
+    "href": "presentation.html#placebo-tests-leave-one-out",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "Placebo Tests: Leave-one-out",
+    "text": "Placebo Tests: Leave-one-out"
+  },
+  {
+    "objectID": "presentation.html#end",
+    "href": "presentation.html#end",
+    "title": "A Contextualized Synthetic Control Method:",
+    "section": "END",
+    "text": "END\nThank you for your attention!\nhome"
+  }
+]
