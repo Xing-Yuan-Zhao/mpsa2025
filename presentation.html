@@ -350,6 +350,27 @@ Xingyuan Zhao
 </ul>
 </div>
 </section>
+<section id="data-and-measurements" class="slide level2">
+<h2>Data and Measurements</h2>
+<ul>
+<li>Outcome Variable: Best AI performance score at the time (Hugging face Open LLM leaderboard)</li>
+<li>Treatment: October 2023 cutoff</li>
+<li>Covariates:
+<ul>
+<li>Accumulated AI related paper counts (OpenAlex)</li>
+<li>Accumulated AI related paper cites *</li>
+<li>Technology stock index (Yahoo Finance)</li>
+<li>Electronics Import Value (Trade Map) *</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-and-measurements-1" class="slide level2">
+<h2>Data and Measurements</h2>
+<ul>
+<li>Unit of Analysis: Country-Month</li>
+<li>Donor Group Scope: Countries that are not affected by the GPU regulation</li>
+</ul>
+</section>
 <section id="uniqueness-of-the-ai-performance-data" class="slide level2">
 <h2>Uniqueness of the AI Performance Data</h2>
 <ul>
@@ -363,7 +384,7 @@ Xingyuan Zhao
 <ul>
 <li>Donor units must be sufficiently similar to the treated unit</li>
 <li>The treated unit can be approximated by the control units</li>
-<li>Unit weights must be nonnegative and add up to one to avoid extrapolation</li>
+<li>Unit weights must be non-negative and add up to one to avoid extrapolation</li>
 <li>Larger donor pool than pre-treatment period can lead to overfitting</li>
 <li>Pre-treatment outcomes unaffected by future intervention</li>
 <li>No spillover effects</li>
