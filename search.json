@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Contexual Synthetic Control Method",
+    "title": "Contextualized Synthetic Control Method",
     "section": "",
     "text": "A Synthetic Control Method that incorporates Multi-head Attention Mechanism"
   },
@@ -17,8 +17,8 @@
     "objectID": "presentation.html#bureau-of-industry-and-security-gpu-ban",
     "href": "presentation.html#bureau-of-industry-and-security-gpu-ban",
     "title": "A Contextualized Synthetic Control Method:",
-    "section": "",
-    "text": "October 2022: First set of controls to prevent certain foreign military and intelligence services from obtaining advanced GPUs\nOctober 2023: BIS expanded export controls specifically aiming at limiting the PRC’s AI capabilities\n\n\n\nThe GPU ban temporarily reduced the development of the PRC’s AI models performance."
+    "section": "Bureau of Industry and Security GPU Ban",
+    "text": "Bureau of Industry and Security GPU Ban\n\nOctober 2022: First set of controls to prevent certain foreign military and intelligence services from obtaining advanced GPUs\nOctober 2023: BIS expanded export controls specifically aiming at limiting the PRC’s AI capabilities\n\n\n\nThe GPU ban temporarily reduced the development of the PRC’s AI models performance."
   },
   {
     "objectID": "presentation.html#uniqueness-of-the-ai-performance-data",
